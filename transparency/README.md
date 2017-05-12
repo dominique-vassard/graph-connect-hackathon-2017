@@ -1,20 +1,5 @@
 # Play with transparency data
 
-This is part of exploratory work of **Mad HD** Team.
-Winner in the "Best Lead" Category.
-
-Mad HD members are:
-**M**ark Wood
-**A**lina Astrakova
-**D**ominique Vassard
-**H**åvard Wall
-**D**ina Shomer
-
-## Neo4j / APOC version
-Note that this play was made with:
-- Neo4j 3.1.3.4 (workds also with Neo4j 3.2.0)
-- APOC 3.1.3.6 (works also with APOC 3.2.0.2)
-
 ## Get the data
 From all the dataset proposed by Marvelous Graph Hacks Team, the one about transparency has been taken.  
 And among all the type of information available, only those regarding Gifts will be used for the current data play.  
@@ -54,11 +39,12 @@ Because of short duration of hackathon and because they were not so much non-emp
 - Format date to YYYY-MM-DD
 - Format value to integer
 
-Cleaned files are in the zip.
+Cleaned files are in the zip (transparency_data.zip).
 
 ### Import the data
 #### Schema
-Now that we know our data and have cleaned the files, let's define the grap schema!
+Now that we know our data and have cleaned the files, let's define the graph schema!
+![Graph schema](images/schema.png)
 
 #### Import
 Import queries follow the same pattern:
@@ -102,10 +88,11 @@ MERGE (g)-[:OF_VALUE]->(a);
 
 
 All file needs to be  processed this way.  
-It is possible to launch each query in the  browser or the cyher-shell, but it's eventt better to write all the queries in a file (say `transparency.cql`) and to import at once via cypher-shell:
+Copy them in your `$NEO4J_HOME/import` directory.  
+It is possible to launch each query in the  browser or the cyher-shell, but it's even easier to write all the queries in a file (say `transparency.cql`) and to import at once via cypher-shell:
 `cat path/to/transparency.cql | cypher-shell -u neo4j_user`
 A prompt will ask for password.  
-And ther it is, all data are available for play!
+And there it is, all data are available for play!
 
 ## Play with data
 Let's the fun begin.  
@@ -191,13 +178,7 @@ The last two query weren't done during the hackathon. To be honest:
 - the third one (about who received the more gifts from a same person) is entirely new
 - the last one was done in 2 separate queries: one for the "above limit" gifts and one for the "regular" gifts. Idea was just but not completed.
 
-
-## Very last word
-A big thanks to Neo4J and the hackathon team.
-Big up to all competitors.
-
-
-### Bonus
+### Bonus
 The Theresa May graph:
 ```
 MATCH (p:Person  {name: "Rt Hon Theresa May"}),
@@ -206,3 +187,4 @@ MATCH (p:Person  {name: "Rt Hon Theresa May"}),
 RETURN p, g, giver
 ```
 
+![Theresa May graph](images/theresa_may_gifts.png)
