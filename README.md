@@ -23,6 +23,6 @@ Big up to all competitors.
 
 
 ## Works
-Tenders vs Donators: soon  
+Tenders vs Donators: [see github](https://github.com/lynochka/Neo4j-Hackaton)  
 Transparency: [see work here](transparency/README.md)  
 ...
